@@ -1,4 +1,23 @@
-@charset "UTF-8";
+
+/*グレイベースのCSS*/
 body{
-    background-color: blue;
+    background-color: white;
 }
+
+#pageTitle{
+    color: whitesmoke;
+    background-color:lightslategray;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+
+}
+
+#mainContent{
+	background-color:darkgray;
+}
+
+#recent{
+	color: black;
+}
+

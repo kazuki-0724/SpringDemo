@@ -15,8 +15,8 @@ function changeStyle(type){
 		cssTarget.href = '/css/sample1.css'	    
 	}else if(type == "test2"){
 		cssTarget.href = '/css/sample2.css'	                
-	}else{
-		cssTarget.href = '/css/sample1.css'
+	}else if(type == "test3"){
+		cssTarget.href = '/css/sample3.css'
 	}
 }
 

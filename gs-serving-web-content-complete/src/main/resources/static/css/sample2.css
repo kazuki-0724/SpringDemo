@@ -1,4 +1,18 @@
-@charset "UTF-8";
+/*ブラウンベース*/
+
 body{
-    background-color: brown;
+    background-color: burlywood;
+}
+
+#pageTitle{
+    color: whitesmoke;
+    background-color:brown;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+
+}
+
+#mainContent{
+	background-color:sandybrown;
 }

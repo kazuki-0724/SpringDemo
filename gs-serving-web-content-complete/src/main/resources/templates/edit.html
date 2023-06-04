@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
     <head>
         
         <meta charset="utf-8">
 
-        <!--BootStrapのためのもの-->
+        <!--BootStrapのためのもの thymeleafでも変える必要なし-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -13,68 +13,92 @@
         <!-- CSSファイル -->
         <link th:href="@{/css/theme1.css}" rel="stylesheet" >
         <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+        
+        <!-- デフォルトのCSS -->
+        <link th:href="@{css/sample2.css}" rel="stylesheet" id="sampleCss">
 
-        <!-- JS -->
-        <script src="@{/js/bootstrap.bundle.min.js}"></script>
-        <script src="@{/js/cheatsheet.js}"></script>
-
-        <title>マイルストーン登録</title>
+    
+        <title>マイルストーン編集</title>
 
     </head>
     <body>
 
-        <h1 id="pageTitle">マイルストーン作成</h1>
+        <h1 id="pageTitle">マイルストーン編集</h1>
 
         <!--パンくずリスト-->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">Top</a></li>
-              <!--<li class="breadcrumb-item"><a href="#">マイルストーンリスト</a></li>-->
-              <li class="breadcrumb-item active" aria-current="page">マイルストーン作成</li>
+              <li class="breadcrumb-item"><a th:href="@{index2}">Top</a></li>
+              <li class="breadcrumb-item"><a th:href="@{list}">マイルストーンリスト</a></li>
+              <li class="breadcrumb-item active" aria-current="page">マイルストーン編集</li>
             </ol>
         </nav>
 
         <div id="mainContent">
             
                 <div class="bd-example">
-                    <form id="myForm">
+                    <form id="myForm" th:action="@{/createForm}" method="post" th:object="${milestoneForm}">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingMilestone" placeholder="milestone">
+                            <input type="text" class="form-control" id="floatingMilestone" placeholder="milestone" th:field="*{milestone}" required>
                             <label for="floatingMilestone">milestone</label>
                         </div>
                         
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingDescription" placeholder="description">
+                            <input type="text" class="form-control" id="floatingDescription" placeholder="description" th:field="*{description}" required>
                             <label for="floatingDescription">description</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="text" pattern="\d\d\d\d-\d\d-\d\d" class="form-control" id="floatingDeadline" placeholder="2023-06-02">
-                            <label for="floatingDescription">deadline</label>
+                            <input type="datetime" pattern="\d\d\d\d-\d\d-\d\d" class="form-control" id="floatingDeadline" placeholder="yyyy-MM-dd" th:field="*{deadline}" required>
+                            <label for="floatingDescription">yyyy-MM-dd</label>
                         </div>
 
                         <div class="mb-3">
-                            <select class="form-select" id="exampleFormSelect1">
-                              <option selected>タグ</option>
-                              <option value="1">タグ1</option>
-                              <option value="2">タグ2</option>
-                              <option value="3">タグ3</option>
-                              <option value="2">タグ4</option>
-                              <option value="3">タグ5</option>
+                            <select class="form-select" id="exampleFormSelect1" th:field="*{tag}" th:value="*{tag}">
+                              
+                              <!--<option selected th:value="*{tag}">タグ</option>-->
+                              <option value="1" th:selected="*{tag}">タグ1</option>
+                              <option value="2" th:selected="*{tag}">タグ2</option>
+                              <option value="3" th:selected="*{tag}">タグ3</option>
+                              <option value="4" th:selected="*{tag}">タグ4</option>
+                              <option value="5" th:selected="*{tag}">タグ5</option>
+                              
                             </select>
                         </div>
 
                         <div class="mb-3">
-                            <label for="customRange3" class="form-label">priority</label>
-                            <input type="range" class="form-range" min="1" max="5" step="1" id="customRange3">
+                            <input type="range" class="form-range" min="1" max="5" step="1" id="customRange3" th:field="*{priority}" th:value="*{priority}">
+                        	<!--<label for="customRange3" class="form-label" th:text="*{priority}" id="value">priority</label>-->
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">Submit</button>
+                        <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">Edit</button>
                     
                     </form>
                 </div>
             
         </div>
+        
+        
+        <!--スライダー用
+        <script>
+  			  var elem = document.getElementById('customRange3');
+			  var target = document.getElementById('value');
+			  var rangeValue = function (elem, target) {
+			    return function(evt){
+			      target.innerHTML = elem.value;
+			    }
+			  }
+			  elem.addEventListener('input', rangeValue(elem, target));
+		</script>
+		-->
+	 <!--成功パターン2 -->
+	 <!--CSSファイルの読み込み前に、CSSを切り替え-->
+     <script th:src="@{/js/changeStyle2.js}"></script>
+     <script th:inline="javascript">
+		 window.addEventListener('DOMContentLoaded', changeStyle([[${type}]]));
+	 </script>
+		
+		
     </body>
 
 </html>

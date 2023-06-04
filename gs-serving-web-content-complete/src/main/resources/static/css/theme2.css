@@ -1,3 +1,4 @@
+/*各パーツの位置とかサイズを指定*/
 
 #pageTitle{
     color: aliceblue;
@@ -5,6 +6,7 @@
     padding: 20px;
     text-align: center;
     margin: auto;
+    
 
 }
 
@@ -30,4 +32,16 @@
     line-height: 100px;
     margin: 20px;
     flex-basis: 20%;
+    
+}
+
+
+table{
+	background-color: whitesmoke;
+	line-height: 1.2;
+}
+
+
+button{
+	width: 100%;
 }

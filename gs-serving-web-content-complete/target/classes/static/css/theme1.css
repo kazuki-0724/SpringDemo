@@ -1,3 +1,5 @@
+/*各パーツの位置とかサイズを指定*/
+
 body{
     background-color: darkcyan;
 }
@@ -11,20 +13,26 @@ body{
 
 }
 
-#myForm{
-    width: 70%;
-    margin: auto;
-}
 
 #mainContent{
-    width: 85%;
-    background-color: darkcyan;
-    border: solid;
+    width: 50%;
+    /*background-color: darkcyan;*/
+    /*border: solid;*/
     margin: auto;
-    padding-top: 30px;
-    padding-bottom: 50px;
-    margin-top: 100px;
+    /*padding: 30px;*/
+    /*padding-bottom: 50px;*/
+    margin-top: 70px;
 }
+
+
+#myForm{
+    /*width: 70%;*/
+    margin: auto;
+    padding: 60px;
+}
+
+
+
 
 #submitBtn{
     float: right;

@@ -13,13 +13,11 @@
         <!-- CSSファイル -->
         <link th:href="@{/css/theme1.css}" rel="stylesheet" >
         <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-
-        <!-- JS -->
-        <!--<script src="@{/js/bootstrap.bundle.min.js}"></script>
-        <script src="@{/js/cheatsheet.js}"></script>-->
         
+        <!-- デフォルトのCSS -->
+        <link th:href="@{css/sample2.css}" rel="stylesheet" id="sampleCss">
 
-        <title>マイルストーン登録</title>
+        <title>マイルストーン作成</title>
 
     </head>
     <body>
@@ -29,8 +27,8 @@
         <!--パンくずリスト-->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">Top</a></li>
-              <!--<li class="breadcrumb-item"><a href="#">マイルストーンリスト</a></li>-->
+              <li class="breadcrumb-item"><a th:href="@{index2}">Top</a></li>
+              <li class="breadcrumb-item"><a th:href="@{list}">マイルストーンリスト</a></li>
               <li class="breadcrumb-item active" aria-current="page">マイルストーン作成</li>
             </ol>
         </nav>
@@ -59,9 +57,9 @@
                               <!--<option selected >タグ</option>-->
                               <option value="1" >タグ1</option>
                               <option value="2" >タグ2</option>
-                              <option value="3" th:value="*{tag}">タグ3</option>
-                              <option value="2" th:value="*{tag}">タグ4</option>
-                              <option value="3" th:text="*{tag}" th:value="*{tag}">タグ5</option>
+                              <option value="3" >タグ3</option>
+                              <option value="2" >タグ4</option>
+                              <option value="3" >タグ5</option>
                               
                             </select>
                         </div>
@@ -91,6 +89,15 @@
 			  elem.addEventListener('input', rangeValue(elem, target));
 		</script>
 		-->
+		
+	 <!--成功パターン2 -->
+	 <!--CSSファイルの読み込み前に、CSSを切り替え-->
+     <script th:src="@{/js/changeStyle2.js}"></script>
+     <script th:inline="javascript">
+		 window.addEventListener('DOMContentLoaded', changeStyle([[${type}]]));
+	 </script>
+		
+		
     </body>
 
 </html>

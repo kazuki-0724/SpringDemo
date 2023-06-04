@@ -1,0 +1,34 @@
+@charset "UTF-8";
+@charset "UTF-8";
+body{
+    background-color: blue;
+}
+
+#pageTitle{
+    color: whitesmoke;
+    background-color:darkblue;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+
+}
+
+
+/*ブルーベース*/
+
+body{
+    background-color: skyblue;
+}
+
+#pageTitle{
+    color: whitesmoke;
+    background-color:royalblue;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+
+}
+
+#mainContent{
+	background-color:deepskyblue;
+}

@@ -1,5 +1,8 @@
 package com.example.servingwebcontent;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,6 +40,18 @@ public class MyController {
 	}
 	
 	
+	@GetMapping("/sample3")
+	public String sample3(Model model) {
+		
+		//先にgreetings.htmlに行ってるから
+		//System.out.println("dokokokokoko " + user.getTheme());
+		model.addAttribute("type", "test3");
+		user.setTheme("test3");
+		
+		return "temp";
+	}
+	
+	
 	
 	@GetMapping("/temp")
 	public String showTemp(Model model) {
@@ -54,6 +69,24 @@ public class MyController {
 		
 		//先にgreetings.htmlに行ってるから
 		model.addAttribute("type", user.getTheme());
+		
+		//マイルストーンフォーム
+		MilestoneForm milestoneForm = new MilestoneForm();
+		milestoneForm.setMilestone("マイルストーン");
+		milestoneForm.setDescription("ディスクリプション");
+		milestoneForm.setDeadline("2023-06-04");
+		milestoneForm.setTag("3");
+		milestoneForm.setPriority("3");
+				
+		List<MilestoneForm> milestoneList = new ArrayList<>();
+		milestoneList.add(milestoneForm);
+		milestoneList.add(milestoneForm);
+		milestoneList.add(milestoneForm);
+		milestoneList.add(milestoneForm);
+		
+		model.addAttribute("milestoneList", milestoneList);
+		
+		
 		return "index2";
 	}
 	
@@ -64,6 +97,26 @@ public class MyController {
 		//先にgreetings.htmlに行ってるから
 		System.out.println("dokokokokoko [" + user.getTheme());
 		model.addAttribute("type", user.getTheme());
+		
+		//マイルストーンフォーム
+		MilestoneForm milestoneForm = new MilestoneForm();
+		milestoneForm.setMilestone("マイルストーン");
+		milestoneForm.setDescription("ディスクリプション");
+		milestoneForm.setDeadline("2023-06-04");
+		milestoneForm.setTag("3");
+		milestoneForm.setPriority("3");
+		
+		List<MilestoneForm> milestoneList = new ArrayList<>();
+		milestoneList.add(milestoneForm);
+		milestoneList.add(milestoneForm);
+		milestoneList.add(milestoneForm);
+		milestoneList.add(milestoneForm);
+		
+		model.addAttribute("milestoneList", milestoneList);
+		
+		
+		
+		
 		return "list";
 	}
 	
@@ -82,8 +135,21 @@ public class MyController {
 	@GetMapping("/edit")
 	public String showEdit(Model model) {
 		
+		MilestoneForm milestoneForm = new MilestoneForm();
+		milestoneForm.setMilestone("マイルストーン");
+		milestoneForm.setDescription("ディスクリプション");
+		milestoneForm.setDeadline("2023-06-04");
+		milestoneForm.setTag("3");
+		milestoneForm.setPriority("3");
+		
+		
+		model.addAttribute("milestoneForm",milestoneForm);
+		
 		//先にgreetings.htmlに行ってるから
 		model.addAttribute("type", user.getTheme());
+		
+		
+		
 		return "edit";
 	}
 	
