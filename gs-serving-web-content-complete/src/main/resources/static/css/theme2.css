@@ -1,0 +1,33 @@
+
+#pageTitle{
+    color: aliceblue;
+    background-color:darkgray;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+
+}
+
+.parentBox{
+ display: flex;
+ margin: auto;
+ width: 80%;
+ }
+ 
+.childItem1{
+ color: #fff;
+ border: solid 1px #fff;
+ text-align: center;
+ line-height: 100px;
+ margin: 20px;
+ flex-basis: 70%;
+}
+
+.childItem2{
+    color: #fff;
+    border: solid 1px #fff;
+    text-align: center;
+    line-height: 100px;
+    margin: 20px;
+    flex-basis: 20%;
+}

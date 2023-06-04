@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        
+        <meta charset="utf-8">
+
+        <!--BootStrapのためのもの-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            
+        <!-- CSSファイル -->
+        <link th:href="@{/css/theme1.css}" rel="stylesheet" >
+        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+        <!-- JS -->
+        <script src="@{/js/bootstrap.bundle.min.js}"></script>
+        <script src="@{/js/cheatsheet.js}"></script>
+
+        <title>マイルストーン登録</title>
+
+    </head>
+    <body>
+
+        <h1 id="pageTitle">マイルストーン作成</h1>
+
+        <!--パンくずリスト-->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Top</a></li>
+              <!--<li class="breadcrumb-item"><a href="#">マイルストーンリスト</a></li>-->
+              <li class="breadcrumb-item active" aria-current="page">マイルストーン作成</li>
+            </ol>
+        </nav>
+
+        <div id="mainContent">
+            
+                <div class="bd-example">
+                    <form id="myForm">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingMilestone" placeholder="milestone">
+                            <label for="floatingMilestone">milestone</label>
+                        </div>
+                        
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingDescription" placeholder="description">
+                            <label for="floatingDescription">description</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" pattern="\d\d\d\d-\d\d-\d\d" class="form-control" id="floatingDeadline" placeholder="2023-06-02">
+                            <label for="floatingDescription">deadline</label>
+                        </div>
+
+                        <div class="mb-3">
+                            <select class="form-select" id="exampleFormSelect1">
+                              <option selected>タグ</option>
+                              <option value="1">タグ1</option>
+                              <option value="2">タグ2</option>
+                              <option value="3">タグ3</option>
+                              <option value="2">タグ4</option>
+                              <option value="3">タグ5</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="customRange3" class="form-label">priority</label>
+                            <input type="range" class="form-range" min="1" max="5" step="1" id="customRange3">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">Submit</button>
+                    
+                    </form>
+                </div>
+            
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        
+        <meta charset="utf-8">
+
+        <!--BootStrapのためのもの-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            
+     <!-- CSSファイル -->
+        <link th:href="@{/css/theme2.css}" rel="stylesheet" >
+        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+        <!-- JS -->
+        <script src="@{/js/bootstrap.bundle.min.js}"></script>
+        <script src="@{/js/cheatsheet.js}"></script>
+
+        <title>トップページ</title>
+
+    </head>
+    <body>
+
+        <h1 id="pageTitle">トップページ</h1>
+
+         <!--パンくずリスト-->
+         <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <!--<li class="breadcrumb-item"><a href="index.html">Top</a></li>-->
+              <!--<li class="breadcrumb-item"><a href="#">マイルストーンリスト</a></li>-->
+              <li class="breadcrumb-item active" aria-current="page">Top</li>
+            </ol>
+        </nav>
+
+        <div>
+            <div class="parentBox">
+                <div class="childItem1">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">milestone</th>
+                          <th scope="col">deadline</th>
+                          <th scope="col">priority</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>マイルソーン1</td>
+                          <td>2023-06-03</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>マイルソーン2</td>
+                          <td>2023-06-03</td>
+                          <td>2</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>マイルソーン3</td>
+                          <td>2023-06-03</td>
+                          <td>3</td>
+                        </tr>
+                        </tbody>
+                      </table>
+
+                      <div class="progress mb-3">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                      </div>
+    
+                </div>
+                <div class="childItem2">
+                    <div>
+                        <a href="creationForm.html">マイルストーン作成</a>
+                    </div>
+                    <div>
+                        <a href="list.html">マイルストーンリスト</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        
+
+
+        <!--
+        <div>
+            
+            -->
+        </div>
+    </body>
+
+</html>

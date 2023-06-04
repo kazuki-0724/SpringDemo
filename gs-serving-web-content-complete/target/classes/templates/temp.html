@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>temp</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     
+      
+    
+     
+     <!--成功パターン1
+     <script th:inline="javascript">
+		 //onloadより先に呼ばれるイベントDOMContentLoaded
+		 document.addEventListener('DOMContentLoaded',
+	
+			function(){
+			 	//もらってきた変数をtypeに入れる
+			 	var type = /*[[${type}]]*/"else"; 
+				//cssのオブジェクトを取得
+				var cssTarget = document.getElementById('sampleCss');
+				                
+			    if(type == "test"){
+			    	cssTarget.href = '/css/sample1.css'
+			    	
+			    }else if(type == "test2"){
+			        cssTarget.href = '/css/sample2.css'
+			                
+			    }else{
+			        cssTarget.href = '/css/sample1.css'
+			
+			    }            
+			}
+	
+	
+		)		 
+	 </script>
+     -->
+     
+     <link th:href="@{css/sample2.css}" rel="stylesheet" id="sampleCss">
+    
+</head>
+<body>
+    <h1 id="tmp">default</h1>
+    <p text="temp" />
+    <p th:text="${type}"/>
+    
+    
+    <!--成功パターン2 -->
+     <script th:src="@{/js/changeStyle2.js}"></script>
+     <script th:inline="javascript">
+		 window.addEventListener('DOMContentLoaded', changeStyle([[${type}]]));
+	 </script>
+    
+</body>
+</html>
